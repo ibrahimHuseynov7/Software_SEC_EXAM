@@ -1,5 +1,5 @@
 #You can change this depending on your environment.
-DEFAULT_CSV_PATH = "/Users/ibrahimhuseynov/Big_Data_1/Data_Collection/Merged_Csv/merged_1ci_qrup_corrected.csv"
+DEFAULT_CSV_PATH = "/Users/ibrahimhuseynov/Big_Data_1/Software_SEC_EXAM/Data_Collection/Merged_Csv/merged_1ci_qrup_corrected.csv"
 
 # Streamlit page settings
 PAGE_TITLE = "Admission Recommender"
