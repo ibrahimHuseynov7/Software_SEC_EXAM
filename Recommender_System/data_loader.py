@@ -1,4 +1,3 @@
-import os
 import tempfile
 from pyspark.sql.functions import col, split
 import pandas as pd
@@ -48,12 +47,13 @@ def load_spark_dataframe(path: str, sep: str):
     """
     Reads the dataset using Spark.
     """
-    df = spark.read \
-        .option("header", True) \
-        .option("sep", sep) \
-        .option("encoding", "UTF-8") \
-        .option("inferSchema", True) \
+    df = (
+        spark.read.option("header", True)
+        .option("sep", sep)
+        .option("encoding", "UTF-8")
+        .option("inferSchema", True)
         .csv(path)
+    )
     return df
 
 
@@ -65,7 +65,7 @@ def normalize_columns(df):
     expected = [
         "year", "university", "major", "branch", "language",
         "study_form_symbol", "main_min_score", "main_competition_score",
-        "has_subbakalavr", "sub_min_score", "sub_competition_score"
+        "has_subbakalavr", "sub_min_score", "sub_competition_score",
     ]
 
     if len(df.columns) == 1:
@@ -77,7 +77,7 @@ def normalize_columns(df):
 
     numeric = [
         "main_min_score", "main_competition_score",
-        "sub_min_score", "sub_competition_score"
+        "sub_min_score", "sub_competition_score",
     ]
     for n in numeric:
         if n in df.columns:
